@@ -30,5 +30,5 @@ const CourseRow = ({title, ownedBy, lastModified}) =>
 
       </td>
     </tr>
-
+ 
 export default CourseRow
