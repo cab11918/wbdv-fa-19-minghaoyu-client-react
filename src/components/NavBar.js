@@ -1,5 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import WhiteBoard from "./WhiteBoard"
+import {Link} from 'react-router-dom'
 
 const NavBar = () =>
 
@@ -13,11 +15,21 @@ const NavBar = () =>
       </a>
 
 
-      <button className="navbar-toggler" type="button" data-toggle="collapse"
-              data-target="#addCollapse" aria-controls="addCollapse"
-              aria-expanded="false">
-        <span className="navbar-toggler-icon"></span>
-      </button>
+      <Link to="/courseTable">
+        <button type="button" className="btn btn-outline-light">
+          TV
+        </button>
+
+      </Link>
+
+      <Link to="/courseGrid">
+        <button type="button" className="btn btn-outline-light">
+          GV
+        </button>
+
+      </Link>
+
+
     </nav>
 
 export default NavBar
