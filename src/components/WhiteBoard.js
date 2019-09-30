@@ -2,7 +2,7 @@ import React from 'react'
 
 import NavBar from "./NavBar";
 import CourseTable from "../containers/CourseTable";
-import CourseGrid from "./CourseGrid";
+import CourseCard from "./CourseCard";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 export default class WhiteBoard extends React.Component {
@@ -23,7 +23,7 @@ export default class WhiteBoard extends React.Component {
             </div>
 
             <div className="row">
-              <Route path="/courseGrid" component={CourseGrid}/>
+              <Route path="/courseGrid" component={CourseCard}/>
 
 
             </div>

@@ -1,51 +1,48 @@
 import React from 'react'
 
+const courses = [
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+
+]
+
 const CourseService = () =>
     <h1>hi there!</h1>
 
 function createCourse(course) {
-    return fetch('/src/services/courses.json', {
-        method: 'POST',
-        body: JSON.stringify(course),
-        headers: {
-            'content-type': 'application/json'
-        }
-    })
+  courses.push(course)
 
 }
 
 function findAllCourses() {
-    return fetch('/src/services/courses.json')
-        .then(function (response) {
-            return response.json();
-        })
+  return courses
 }
 
 function findCourseById(id) {
-    return fetch('/src/services/courses.json/' + id, {
-        method: 'GET',
-
-    }).then(function (response) {
-        return response.json();
-    })
+  courses.find(id)
 }
 
 function updateCourse(id, course) {
-    return fetch('/src/services/courses.json/' + id, {
-        method: 'PUT',
-
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(course)
-    })
+  courses.update(id, course)
 }
 
 function deleteCourse(id) {
-    return fetch('/src/services/courses.json/' + id, {
-        method: 'DELETE',
-
-    })
+  courses.delete(id)
 }
 
 export default CourseService

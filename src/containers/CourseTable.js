@@ -1,7 +1,8 @@
 import React from 'react'
 import CourseRow from "../components/CourseRow";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faTh, faEye} from '@fortawesome/free-solid-svg-icons'
+import {faTh, faSortAlphaDown} from '@fortawesome/free-solid-svg-icons'
+import CourseServices from "../services/CourseService"
 
 const courses = [
   {title: 'Course 1', ownedBy: 123, lastModified: 1},
@@ -36,16 +37,22 @@ const CourseTable = () =>
             Owned by
           </th>
           <th>
-            Last modified
+            Last modified by me
           </th>
 
           <th>
+
+            <button className={"btn btn-outline-light float-right"}>
+
+              <FontAwesomeIcon icon={faSortAlphaDown}/>
+
+            </button>
+
             <button className={"btn btn-outline-light float-right"}>
 
               <FontAwesomeIcon icon={faTh}/>
 
             </button>
-
 
 
           </th>
