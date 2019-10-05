@@ -4,6 +4,8 @@ import NavBar from "./NavBar";
 import CourseTable from "../containers/CourseTable";
 import CourseCard from "./CourseCard";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import CourseGrid from "../containers/CourseGrid";
+import CourseEditor from "../containers/CourseEditor";
 
 export default class WhiteBoard extends React.Component {
 
@@ -11,11 +13,14 @@ export default class WhiteBoard extends React.Component {
 
     return (
         <Router>
+
           <div>
             <NavBar/>
             <div className="row">
 
               <div className="col-12">
+
+                  <Route path="/courseEditor" component={CourseEditor}/>
                 <Route path="/courseTable" component={CourseTable}/>
               </div>
 
@@ -23,19 +28,11 @@ export default class WhiteBoard extends React.Component {
             </div>
 
             <div className="row">
-              <Route path="/courseGrid" component={CourseCard}/>
+              <Route path="/courseGrid" component={CourseGrid}/>
 
 
             </div>
 
-            <div className="row">
-              <div className="col-4">
-                <h2>Modules</h2>asda
-              </div>
-              <div className="col-8">
-                <h2>Lessons</h2>fdsfs
-              </div>
-            </div>
           </div>
 
         </Router>

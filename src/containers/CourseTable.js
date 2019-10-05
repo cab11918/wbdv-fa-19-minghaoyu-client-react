@@ -3,6 +3,10 @@ import CourseRow from "../components/CourseRow";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTh, faSortAlphaDown} from '@fortawesome/free-solid-svg-icons'
 import CourseServices from "../services/CourseService"
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import CourseGrid from "./CourseGrid";
+import CourseEditor from "./CourseEditor";
+
 
 const courses = [
   {title: 'Course 1', ownedBy: 123, lastModified: 1},
@@ -26,6 +30,8 @@ const courses = [
 ]
 
 const CourseTable = () =>
+
+
     <div>
       <table className="table">
         <thead className="thead-dark">
@@ -59,7 +65,9 @@ const CourseTable = () =>
         </tr>
         </thead>
         <tbody>
-        {
+
+
+          {
           courses.map(course =>
               <CourseRow
                   key={course.id}
