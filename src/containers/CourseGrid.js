@@ -1,9 +1,14 @@
 import React from 'react'
 import CourseRow from "../components/CourseRow";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faTh, faSortAlphaDown} from '@fortawesome/free-solid-svg-icons'
+import {faTh, faSortAlphaDown, faList, faCaretDown} from '@fortawesome/free-solid-svg-icons'
 import CourseServices from "../services/CourseService"
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+
 import CourseCard from "../components/CourseCard"
+import CourseTable from "./CourseTable";
+import {Link} from 'react-router-dom'
+
 
 const courses = [
   {title: 'Course 1', ownedBy: 123, lastModified: 1},
@@ -27,91 +32,60 @@ const courses = [
 ]
 
 const CourseGrid = () =>
-    <div className="row">
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+    <div>
+      <Route path="/courseTable" component={CourseTable}/>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+      <table className="table">
+        <thead className="thead-dark">
+        <tr>
+          <th>
+            Recent documents
+          </th>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+          <th>
+            Owned by me
+            &nbsp;
+            <FontAwesomeIcon icon={faCaretDown}/>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+          </th>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+          <th>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+            <button className={"btn btn-outline-light float-right"}>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+              <FontAwesomeIcon icon={faSortAlphaDown}/>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+            </button>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+            <Link to="/courseTable">
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+            <button className={"btn btn-outline-light float-right"}>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+              <FontAwesomeIcon icon={faList}/>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+            </button>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+            </Link>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+          </th>
+        </tr>
+        </thead>
+      </table>
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
+      {
 
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
-
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
-
-      </div>
-      <div className="col-xs-12 col-md-4 col-lg-2">
-        <CourseCard/>
-
-      </div>
+        courses.map(course =>
+            <CourseCard
+                key={course.id}
+                title={course.title}
+                ownedBy={course.ownedBy}
+                lastModified={course.lastModified}
+            />
+        )
+      }
 
 
     </div>

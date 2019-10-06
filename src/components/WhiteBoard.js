@@ -9,6 +9,7 @@ import CourseEditor from "../containers/CourseEditor";
 
 export default class WhiteBoard extends React.Component {
 
+
   render() {
 
     return (
@@ -28,7 +29,12 @@ export default class WhiteBoard extends React.Component {
             </div>
 
             <div className="row">
+
+              <div className="col-12">
+
               <Route path="/courseGrid" component={CourseGrid}/>
+
+              </div>
 
 
             </div>
@@ -40,4 +46,5 @@ export default class WhiteBoard extends React.Component {
     )
 
   }
+
 }

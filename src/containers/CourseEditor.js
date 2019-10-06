@@ -2,62 +2,93 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
 
+import {
+  faTimesCircle,
+  faPlusSquare,
+} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import CourseTable from "./CourseTable";
+
+
 const CourseEditor = () =>
 
-    <div>
-
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-
-      <button type="button" onClick="window.location.href='/'"
-              className="close btn-dark"
-              aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-
-      <a className="navbar-brand"
-         href="/course-editor/course-editor.template.client.html">
-
-        CS5550 Software Engineering Graduate
-
-      </a>
 
 
-      <div className="collapse navbar-collapse" id="addCollapse">
+      <div>
 
-        <a className="nav-item nav-link text-white" href="#">Build</a>
-        <a className="nav-item nav-link active text-white wbdv-page-tab"
-           href="#">Pages</a>
-        <a className="nav-item nav-link text-white" href="#">Theme</a>
-        <a className="nav-item nav-link text-white" href="#">Store</a>
-        <a className="nav-item nav-link text-white" href="#">Apps</a>
-        <a className="nav-item nav-link text-white" href="#">Settings</a>
 
-        <button className="btn btn-outline-danger wbdv-new-page-btn"
-                type="submit"><i
-            className="fas fa-plus-circle wbdv-button wbdv-add-course"></i>
-        </button>
+
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+
+          <Link to="/courseTable">
+          <button className={"btn btn-outline-light float-right"}>
+
+            <FontAwesomeIcon icon={faTimesCircle}/>
+
+          </button>
+
+          </Link>
+          <a className="navbar-brand" href="#">CS5550 Software Engineering Graduate
+          </a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <a className="nav-link" href="#">Build <span
+                    className="sr-only">(current)</span></a>
+              </li> <li className="nav-item">
+              <a className="nav-link" href="#">Pages <span
+                  className="sr-only">(current)</span></a>
+            </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Theme <span
+                    className="sr-only">(current)</span></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Store <span
+                    className="sr-only">(current)</span></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Apps <span
+                    className="sr-only">(current)</span></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Settings <span
+                    className="sr-only">(current)</span></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+
+
+                <span
+                    className="sr-only">(current)</span></a>
+              </li>
+
+
+            </ul>
+
+          </div>
+          <button className={"btn btn-outline-light float-right"}>
+
+            <FontAwesomeIcon icon={faPlusSquare}/>
+
+          </button>
+        </nav>
+
 
 
       </div>
 
 
-      <button className="navbar-toggler" type="button" data-toggle="collapse"
-              data-target="#addCollapse" aria-controls="addCollapse"
-              aria-expanded="false">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-    </nav>
 
-    <div className="row">
-    <div className="col-4">
-    <h2>Modules</h2>asda
-</div>
-<div className="col-8">
-<h2>Lessons</h2>fdsfs
-</div>
-</div>
 
-</div>
 
 
 

@@ -10,33 +10,33 @@ import CourseGrid from "../containers/CourseGrid";
 
 const CourseRow = ({title, ownedBy, lastModified}) =>
 
+    <tr>
 
-      <tr>
-
-        <td>
-          <FontAwesomeIcon icon={faBook}/>
-          <Link to="/courseEditor">
-
-
-            {title}
+      <td>
+        <FontAwesomeIcon icon={faBook}/>
+        &nbsp;
+        <Link to="/courseEditor">
 
 
-          </Link>
+          {title}
 
-        </td>
-        <td>
-          {ownedBy}
-        </td>
-        <td>
-          {lastModified}
-        </td>
-        <td>
-          <button className={"btn btn-outline-secondary float-right"}>
-            <FontAwesomeIcon icon={faTimes}/>
 
-          </button>
+        </Link>
 
-        </td>
-      </tr>
+      </td>
+      <td>
+        {ownedBy}
+      </td>
+      <td>
+        {lastModified}
+      </td>
+      <td>
+        <button className={"btn btn-outline-secondary float-right"}>
+          <FontAwesomeIcon icon={faTimes}/>
+
+        </button>
+
+      </td>
+    </tr>
 
 export default CourseRow

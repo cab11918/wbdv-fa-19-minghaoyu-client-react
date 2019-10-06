@@ -6,6 +6,9 @@ import CourseServices from "../services/CourseService"
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CourseGrid from "./CourseGrid";
 import CourseEditor from "./CourseEditor";
+import WhiteBoard from "../components/WhiteBoard"
+import {Link} from 'react-router-dom'
+
 
 
 const courses = [
@@ -32,7 +35,11 @@ const courses = [
 const CourseTable = () =>
 
 
+
+
     <div>
+      <Route path="/courseGrid" component={CourseGrid}/>
+
       <table className="table">
         <thead className="thead-dark">
         <tr>
@@ -48,17 +55,24 @@ const CourseTable = () =>
 
           <th>
 
+
             <button className={"btn btn-outline-light float-right"}>
 
               <FontAwesomeIcon icon={faSortAlphaDown}/>
 
             </button>
 
+
+            <Link to="/courseGrid">
+
+
             <button className={"btn btn-outline-light float-right"}>
 
               <FontAwesomeIcon icon={faTh}/>
 
             </button>
+
+            </Link>
 
 
           </th>
@@ -68,6 +82,7 @@ const CourseTable = () =>
 
 
           {
+
           courses.map(course =>
               <CourseRow
                   key={course.id}
