@@ -9,6 +9,7 @@ import {
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CourseTable from "./CourseTable";
+import ModuleList from "../components/ModuleList";
 
 
 const CourseEditor = () =>
@@ -81,6 +82,19 @@ const CourseEditor = () =>
 
           </button>
         </nav>
+
+        <div className="row">
+            <ModuleList/>
+
+
+          <div className="col-9">
+
+          </div>
+
+
+        </div>
+
+
 
 
 

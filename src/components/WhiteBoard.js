@@ -15,8 +15,9 @@ export default class WhiteBoard extends React.Component {
     return (
         <Router>
 
-          <div>
+          <div className="container-fluid">
             <NavBar/>
+
             <div className="row">
 
               <div className="col-12">
