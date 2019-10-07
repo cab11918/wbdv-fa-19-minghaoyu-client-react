@@ -7,7 +7,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CourseGrid from "../containers/CourseGrid";
 import CourseEditor from "../containers/CourseEditor";
 
-export default class WhiteBoard extends React.Component {
+class WhiteBoard extends React.Component {
 
 
   render() {
@@ -16,7 +16,6 @@ export default class WhiteBoard extends React.Component {
         <Router>
 
           <div className="container-fluid">
-            <NavBar/>
 
             <div className="row">
 
@@ -48,4 +47,4 @@ export default class WhiteBoard extends React.Component {
 
   }
 
-}
+} export default WhiteBoard

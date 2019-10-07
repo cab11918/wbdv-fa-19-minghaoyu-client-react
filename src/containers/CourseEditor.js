@@ -11,37 +11,36 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CourseTable from "./CourseTable";
 import ModuleList from "../components/ModuleList";
 import LessonTabs from "../components/LessonTabs";
+import TopicPills from "../components/TopicPills";
+
+class CourseEditor extends React.Component {
+  render() {
+    return(
+
+        <div>
 
 
-const CourseEditor = () =>
+          <LessonTabs/>
 
 
-
-      <div>
-
-
-
-        <LessonTabs/>
-
-        <div className="row">
+          <div className="row">
             <ModuleList/>
 
 
-          <div className="col-9">
+            <div className="col-9">
+
+              <TopicPills/>
+
+            </div>
+
 
           </div>
 
 
         </div>
-
-
-
-
-
-      </div>
-
-
-
+    )
+  }
+}
 
 
 

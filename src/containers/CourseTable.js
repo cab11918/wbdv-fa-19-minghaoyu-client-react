@@ -8,94 +8,87 @@ import CourseGrid from "./CourseGrid";
 import CourseEditor from "./CourseEditor";
 import WhiteBoard from "../components/WhiteBoard"
 import {Link} from 'react-router-dom'
+import NavBar from "../components/NavBar";
+import CourseService from "../services/CourseService"
+
+class CourseTable extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.CourseService = CourseService.getInstance()
+    this.state = {
+      courses: this.CourseService.findAllCourses()
+    }
+
+  }
+
+  handleDelete = id => {
+
+    this.CourseService.deleteCourse(id)
+    this.setState({courses: this.CourseService.courses});
+  };
+
+  render() {
+    return (
+        <div>
+
+          <NavBar/>
+
+          <Route path="/courseGrid" component={CourseGrid}/>
+
+          <table className="table">
+            <thead className="thead-dark">
+            <tr>
+              <th>
+                Title
+              </th>
+              <th>
+                Owned by
+              </th>
+              <th>
+                Last modified by me
+              </th>
+
+              <th>
 
 
+                <button className={"btn btn-outline-light float-right"}>
 
-const courses = [
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
-  {title: 'Course 1', ownedBy: 123, lastModified: 1},
+                  <FontAwesomeIcon icon={faSortAlphaDown}/>
 
-]
-
-const CourseTable = () =>
+                </button>
 
 
+                <Link to="/courseGrid">
 
 
-    <div>
-      <Route path="/courseGrid" component={CourseGrid}/>
+                  <button className={"btn btn-outline-light float-right"}>
 
-      <table className="table">
-        <thead className="thead-dark">
-        <tr>
-          <th>
-            Title
-          </th>
-          <th>
-            Owned by
-          </th>
-          <th>
-            Last modified by me
-          </th>
+                    <FontAwesomeIcon icon={faTh}/>
 
-          <th>
+                  </button>
+
+                </Link>
 
 
-            <button className={"btn btn-outline-light float-right"}>
-
-              <FontAwesomeIcon icon={faSortAlphaDown}/>
-
-            </button>
+              </th>
+            </tr>
+            </thead>
 
 
-            <Link to="/courseGrid">
+            <CourseRow
+                courses={this.state.courses}
+                handleDelete={this.handleDelete}
+
+            />
 
 
-            <button className={"btn btn-outline-light float-right"}>
+          </table>
+        </div>
 
-              <FontAwesomeIcon icon={faTh}/>
-
-            </button>
-
-            </Link>
-
-
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-
-
-          {
-
-          courses.map(course =>
-              <CourseRow
-                  key={course.id}
-                  title={course.title}
-                  ownedBy={course.ownedBy}
-                  lastModified={course.lastModified}
-              />
-          )
-        }
-
-
-        </tbody>
-      </table>
-    </div>
+    )
+  }
+}
 
 export default CourseTable
+
