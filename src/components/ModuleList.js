@@ -19,6 +19,8 @@ import {faEdit} from "@fortawesome/free-solid-svg-icons/faEdit";
 
 class ModuleList extends React.Component {
   render() {
+
+
     return(
         <div className="container-fluid col-3">
           <div className="list-group wbdv-module-list" id="list-tab" role="tablist">

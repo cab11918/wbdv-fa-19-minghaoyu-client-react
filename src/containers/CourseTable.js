@@ -5,13 +5,12 @@ import {faTh, faSortAlphaDown} from '@fortawesome/free-solid-svg-icons'
 import CourseServices from "../services/CourseService"
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CourseGrid from "./CourseGrid";
-import CourseEditor from "./CourseEditor";
 import WhiteBoard from "../components/WhiteBoard"
 import {Link} from 'react-router-dom'
 import CourseService from "../services/CourseService"
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
 
-class CourseList extends React.Component {
+class CourseTable extends React.Component {
 
   constructor(props) {
     super(props);
@@ -45,6 +44,7 @@ class CourseList extends React.Component {
         id: (new Date().getTime())
       };
       this.CourseService.createCourse(course)
+      this.setState({courses: this.CourseService.courses});
 
     })
 
@@ -77,19 +77,20 @@ class CourseList extends React.Component {
                  id="navbarSupportedContent">
 
 
-              <form className="form-inline my-2 my-lg-0">
+              <div className="row">
                 <input
-                    onChange={this.newCourseChanged} className="form-control mr-sm-12" type="search"
-                       placeholder={this.state.course.title} aria-label="Search">
+                    onChange={this.newCourseChanged}
+                    className="form-control col-5"
+                    placeholder={this.state.course.title} aria-label="Search">
 
                 </input>
-                <button onClick={this.createCourse}
-                    className="btn btn-outline-danger my-2 my-sm-0"
-                        type="submit">
+                <button onClick={this.createCourse}>
 
                   <FontAwesomeIcon icon={faPlusCircle}/>
                 </button>
-              </form>
+
+
+              </div>
 
 
             </div>
@@ -142,7 +143,6 @@ class CourseList extends React.Component {
             <CourseRow
                 courses={this.state.courses}
                 handleDelete={this.handleDelete}
-
             />
 
 
@@ -153,5 +153,5 @@ class CourseList extends React.Component {
   }
 }
 
-export default CourseList
+export default CourseTable
 

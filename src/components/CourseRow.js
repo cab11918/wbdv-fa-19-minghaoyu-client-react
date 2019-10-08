@@ -9,54 +9,51 @@ import CourseEditor from "../containers/CourseEditor";
 import CourseGrid from "../containers/CourseGrid";
 import CourseService from "../services/CourseService";
 
-class CourseRow extends React.Component {
-
-  render() {
-    return (
-
-        <tbody>
-        {
-          this.props.courses.map(course =>
-
-              <tr>
-
-                <td>
-                  <FontAwesomeIcon icon={faBook}/>
-                  &nbsp;
-                  <Link to="/courseEditor">
 
 
-                    {course.title}
+const CourseRow = ({courses,handleDelete}) =>
+    <tbody>
+    {
+      courses.map(course =>
+
+          <tr>
+
+            <td>
+              <FontAwesomeIcon icon={faBook}/>
+              &nbsp;
+              <Link to={`/CourseEditor/${course.id}`}
+              >
 
 
-                  </Link>
-
-                </td>
-                <td>
-                  {course.ownedBy}
-                </td>
-                <td>
-                  {course.lastModified}
-                </td>
-                <td>
-                  <button className={"btn btn-outline-secondary float-right"}
-                          onClick={() => {
-                            this.props.handleDelete(course.id)
-                          }}>
-                    <FontAwesomeIcon icon={faTimes}/>
-
-                  </button>
-
-                </td>
-              </tr>
-          )
-        }
+                {course.title}
 
 
-        </tbody>
+              </Link>
 
-    )
-  }
-}
 
-export default CourseRow
+            </td>
+            <td>
+              {course.ownedBy}
+            </td>
+            <td>
+              {course.lastModified}
+            </td>
+            <td>
+              <button className={"btn btn-outline-secondary float-right"}
+                      onClick={() => {
+                        handleDelete(course.id)
+                      }}>
+                <FontAwesomeIcon icon={faTimes}/>
+
+              </button>
+
+            </td>
+          </tr>
+      )
+    }
+
+
+    </tbody>
+
+    export default CourseRow;
+

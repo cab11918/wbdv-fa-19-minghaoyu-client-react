@@ -14,6 +14,10 @@ import {
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
 
 class LessonTabs extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
   render() {
     return (
 
@@ -27,8 +31,8 @@ class LessonTabs extends React.Component {
             </button>
 
           </Link>
-          <a className="navbar-brand" href="#">CS5550 Software Engineering
-            Graduate
+          <a className="navbar-brand" href="#">
+            {this.props.course}
           </a>
           <button className="navbar-toggler" type="button"
                   data-toggle="collapse"

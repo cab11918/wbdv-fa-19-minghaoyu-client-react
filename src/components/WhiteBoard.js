@@ -1,6 +1,5 @@
 import React from 'react'
 
-import NavBar from "./NavBar";
 import CourseTable from "../containers/CourseTable";
 import CourseCard from "./CourseCard";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -9,6 +8,10 @@ import CourseEditor from "../containers/CourseEditor";
 
 class WhiteBoard extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+  }
 
   render() {
 
@@ -21,8 +24,9 @@ class WhiteBoard extends React.Component {
 
               <div className="col-12">
 
-                  <Route path="/courseEditor" component={CourseEditor}/>
+                <Route path="/courseEditor/:courseId" render={(props) => <CourseEditor {...props}/>}/>
                 <Route path="/courseTable" component={CourseTable}/>
+
               </div>
 
 
@@ -32,7 +36,7 @@ class WhiteBoard extends React.Component {
 
               <div className="col-12">
 
-              <Route path="/courseGrid" component={CourseGrid}/>
+                <Route path="/courseGrid" component={CourseGrid}/>
 
               </div>
 
@@ -47,4 +51,6 @@ class WhiteBoard extends React.Component {
 
   }
 
-} export default WhiteBoard
+}
+
+export default WhiteBoard

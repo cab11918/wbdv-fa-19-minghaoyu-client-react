@@ -1,30 +1,49 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link} from 'react-router-dom'
 
-import {
-  faTimesCircle,
-  faPlusSquare,
-} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import CourseTable from "./CourseTable";
 import ModuleList from "../components/ModuleList";
 import LessonTabs from "../components/LessonTabs";
 import TopicPills from "../components/TopicPills";
+import CourseService from "../services/CourseService";
 
 class CourseEditor extends React.Component {
+
+  constructor(props) {
+    super(props)
+
+    const service = CourseService.getInstance()
+
+    const course = service.findCourseById(props.match.params.courseId)
+
+
+    this.state = {
+
+
+      course: course
+    }
+
+
+
+  }
+
+
+
+
   render() {
-    return(
+    return (
 
         <div>
 
 
-          <LessonTabs/>
+          <LessonTabs
+              course={this.state.course}
+          />
 
 
           <div className="row">
-            <ModuleList/>
+            <ModuleList
+                course={this.state.course}
+
+            />
 
 
             <div className="col-9">
@@ -41,8 +60,5 @@ class CourseEditor extends React.Component {
     )
   }
 }
-
-
-
 
 export default CourseEditor
