@@ -8,19 +8,29 @@ import CourseGrid from "./CourseGrid";
 import CourseEditor from "./CourseEditor";
 import WhiteBoard from "../components/WhiteBoard"
 import {Link} from 'react-router-dom'
-import NavBar from "../components/NavBar";
 import CourseService from "../services/CourseService"
+import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
 
-class CourseTable extends React.Component {
+class CourseList extends React.Component {
 
   constructor(props) {
     super(props);
     this.CourseService = CourseService.getInstance()
     this.state = {
-      courses: this.CourseService.findAllCourses()
+      course: {
+        title: "New Course Title"
+      },
+      courses: this.CourseService.findAllCourses(),
     }
 
   }
+
+  newCourseChanged = (event) =>
+      this.setState({
+        course: {
+          title: event.target.value
+        }
+      })
 
   handleDelete = id => {
 
@@ -28,11 +38,64 @@ class CourseTable extends React.Component {
     this.setState({courses: this.CourseService.courses});
   };
 
+  createCourse = () => {
+    this.setState(prevState => {
+      const course = {
+        title: prevState.course.title,
+        id: (new Date().getTime())
+      };
+      this.CourseService.createCourse(course)
+
+    })
+
+    return {
+      courses: this.CourseService.findAllCourses()
+    }
+
+  };
+
   render() {
     return (
         <div>
 
-          <NavBar/>
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button className="navbar-toggler" type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+
+            <a className="navbar-brand"
+               href="">
+
+              Course Manager
+            </a>
+            <div className="collapse navbar-collapse"
+                 id="navbarSupportedContent">
+
+
+              <form className="form-inline my-2 my-lg-0">
+                <input
+                    onChange={this.newCourseChanged} className="form-control mr-sm-12" type="search"
+                       placeholder={this.state.course.title} aria-label="Search">
+
+                </input>
+                <button onClick={this.createCourse}
+                    className="btn btn-outline-danger my-2 my-sm-0"
+                        type="submit">
+
+                  <FontAwesomeIcon icon={faPlusCircle}/>
+                </button>
+              </form>
+
+
+            </div>
+
+
+          </nav>
 
           <Route path="/courseGrid" component={CourseGrid}/>
 
@@ -90,5 +153,5 @@ class CourseTable extends React.Component {
   }
 }
 
-export default CourseTable
+export default CourseList
 
