@@ -13,13 +13,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
 
-class LessonTabs extends React.Component {
-  constructor(props) {
-    super(props);
+const LessonTabs = ({course,module}) =>
 
-  }
-  render() {
-    return (
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -32,7 +27,7 @@ class LessonTabs extends React.Component {
 
           </Link>
           <a className="navbar-brand" href="#">
-            {this.props.course}
+            {course.title}
           </a>
           <button className="navbar-toggler" type="button"
                   data-toggle="collapse"
@@ -44,37 +39,20 @@ class LessonTabs extends React.Component {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="#">Build <span
-                    className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Pages <span
-                    className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Theme <span
-                    className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Store <span
-                    className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Apps <span
-                    className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Settings <span
-                    className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
 
 
-                <span
+
+
+              <li className="nav-item">
+                <a className="nav-link" href="#"><span
                     className="sr-only">(current)</span></a>
               </li>
+
+
+
+
+
+
 
               <li className="nav-item">
                 <a>
@@ -100,8 +78,6 @@ class LessonTabs extends React.Component {
 
         </nav>
 
-    )
-  }
-}
+
 
 export default LessonTabs

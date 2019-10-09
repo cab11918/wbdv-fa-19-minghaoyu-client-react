@@ -15,54 +15,28 @@ import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
 import {faTimesCircle} from "@fortawesome/free-solid-svg-icons/faTimesCircle";
 import {faEdit} from "@fortawesome/free-solid-svg-icons/faEdit";
 
+const ModuleList = ({course, handleDelete,module,newModuleChanged,createModule}) =>
 
+    <div className="container-fluid col-3">
+      <div className="list-group wbdv-module-list" id="list-tab"
+           role="tablist">
 
-class ModuleList extends React.Component {
-  render() {
-
-
-    return(
-        <div className="container-fluid col-3">
-          <div className="list-group wbdv-module-list" id="list-tab" role="tablist">
-            <a className="list-group-item list-group-item-action active wbdv-module-item"
-               id="list-module1"
-               data-toggle="list"
-               href="#module1" role="tab" aria-controls="module1">
-                    <span className="wbdv-module-item-title">
-                        Module1-JQuery
-                    </span>
-
-
-              <button className="close"
-                      type="submit">
-
-
-                <FontAwesomeIcon icon={faTimesCircle}/>
-
-
-              </button>
-
-
-              <button className="close"
-                      type="submit">
-
-                <FontAwesomeIcon icon={faEdit}/>
-              </button>
-
-
-            </a>
+        {course.modules.map(module =>
 
             <a className="list-group-item list-group-item-action wbdv-module-item"
                id="list-module1"
                data-toggle="list"
                href="#module1" role="tab" aria-controls="module1">
                     <span className="wbdv-module-item-title">
-                        Module2-JQuery
+                      {module.title}
                     </span>
 
 
               <button className="close"
-                      type="submit">
+
+                      onClick={() => {
+                        handleDelete(module.id)
+                      }}>
 
 
                 <FontAwesomeIcon icon={faTimesCircle}/>
@@ -71,136 +45,31 @@ class ModuleList extends React.Component {
               </button>
 
 
-              <button className="close"
-                      type="submit">
+              <button className="close">
 
                 <FontAwesomeIcon icon={faEdit}/>
               </button>
 
 
             </a>
+        )
+        }
+        <input
 
-            <a className="list-group-item list-group-item-action wbdv-module-item"
-               id="list-module1"
-               data-toggle="list"
-               href="#module1" role="tab" aria-controls="module1">
-                    <span className="wbdv-module-item-title">
-                        Module3-JQuery
-                    </span>
+            onChange={newModuleChanged}
+            placeholder={module.title}
+            className="form-control "
+             aria-label="Search">
 
+        </input>
+        <button
+            className="btn btn-success btn-block mt-3"
+            onClick={createModule}>
+          <i className="fas fa-plus-circle"></i> New Module
+        </button>
+      </div>
+    </div>
 
-              <button className="close"
-                      type="submit">
-
-
-                <FontAwesomeIcon icon={faTimesCircle}/>
-
-
-              </button>
-
-
-              <button className="close"
-                      type="submit">
-
-                <FontAwesomeIcon icon={faEdit}/>
-              </button>
-
-
-            </a> <a
-              className="list-group-item list-group-item-action wbdv-module-item"
-              id="list-module1"
-              data-toggle="list"
-              href="#module1" role="tab" aria-controls="module1">
-                    <span className="wbdv-module-item-title">
-                        Module4-JQuery
-                    </span>
-
-
-            <button className="close"
-                    type="submit">
-
-
-              <FontAwesomeIcon icon={faTimesCircle}/>
-
-
-            </button>
-
-
-            <button className="close"
-                    type="submit">
-
-              <FontAwesomeIcon icon={faEdit}/>
-            </button>
-
-
-          </a> <a
-              className="list-group-item list-group-item-action wbdv-module-item"
-              id="list-module1"
-              data-toggle="list"
-              href="#module1" role="tab" aria-controls="module1">
-                    <span className="wbdv-module-item-title">
-                        Module5-JQuery
-                    </span>
-
-
-            <button className="close"
-                    type="submit">
-
-
-              <FontAwesomeIcon icon={faTimesCircle}/>
-
-
-            </button>
-
-
-            <button className="close"
-                    type="submit">
-
-              <FontAwesomeIcon icon={faEdit}/>
-            </button>
-
-
-          </a> <a
-              className="list-group-item list-group-item-action wbdv-module-item"
-              id="list-module1"
-              data-toggle="list"
-              href="#module1" role="tab" aria-controls="module1">
-                    <span className="wbdv-module-item-title">
-                        Module6-JQuery
-                    </span>
-
-
-            <button className="close"
-                    type="submit">
-
-
-              <FontAwesomeIcon icon={faTimesCircle}/>
-
-
-            </button>
-
-
-            <button className="close"
-                    type="submit">
-
-              <FontAwesomeIcon icon={faEdit}/>
-            </button>
-
-
-          </a>
-
-
-          </div>
-          <button
-              className="btn btn-success btn-block mt-3"
-          >
-            <i className="fas fa-plus-circle"></i> New Module
-          </button>
-        </div>
-
-    )
-  }
-}
 
 
 export default ModuleList

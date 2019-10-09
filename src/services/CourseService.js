@@ -24,7 +24,7 @@ export default class CourseService {
   }
 
   findCourseById(courseId) {
-    this.courses.find(course => course.id === courseId)
+  return  this.courses.find(course => course.id === courseId)
   }
 
   deleteCourse(courseId) {
