@@ -54,22 +54,7 @@ const LessonTabs = ({course,module}) =>
 
 
 
-              <li className="nav-item">
-                <a>
 
-                  <input className="form-control mr-sm-12" type="search"
-                         placeholder="New Lesson" aria-label="Search">
-
-                  </input>
-                </a>
-              </li>
-
-
-              <button className="btn btn-outline-light float-right">
-
-                <FontAwesomeIcon icon={faPlusSquare}/>
-
-              </button>
 
 
             </ul>
