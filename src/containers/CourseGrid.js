@@ -1,5 +1,4 @@
 import React from 'react'
-import CourseRow from "../components/CourseRow";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
   faTh,
@@ -7,8 +6,7 @@ import {
   faList,
   faCaretDown
 } from '@fortawesome/free-solid-svg-icons'
-import CourseServices from "../services/CourseService"
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
 import CourseCard from "../components/CourseCard"
 import CourseTable from "./CourseTable";
@@ -47,7 +45,7 @@ class CourseGrid extends React.Component {
     this.setState(prevState => {
       const course = {
         title: prevState.course.title,
-        id: (new Date().getTime())
+        id: (new Date().getTime()),
       };
       this.CourseService.createCourse(course)
       this.setState({courses: this.CourseService.courses});
@@ -89,7 +87,7 @@ class CourseGrid extends React.Component {
                     placeholder={this.state.course.title} aria-label="Search">
 
                 </input>
-                <button onClick={this.createCourse}>
+                <button onClick={this.createCourse} className="btn btn-success">
 
                   <FontAwesomeIcon icon={faPlusCircle}/>
                 </button>

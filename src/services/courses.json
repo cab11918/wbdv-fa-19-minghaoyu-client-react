@@ -11,14 +11,23 @@
             "id": "123",
             "title": "Lesson 1 1 1",
             "topics": [
-              {"title": "Topic 1 1 1 1"}
+              {
+                "id": "23479",
+                "title": "Topic 1d 1 1 1"
+              },
+              {
+                "title": "Topic 1 1a 1 2"
+              }
             ]
           },
           {
             "id": "234",
             "title": "Lesson 1 1 2",
             "topics": [
-              {"title": "Topic 1 1 2 1"}
+              {
+                "id": "12380",
+                "title": "Topic 1 1 2s 1"
+              }
             ]
           }
         ]
@@ -31,14 +40,20 @@
             "id": "345",
             "title": "Lesson 1 2 1",
             "topics": [
-              {"title": "Topic 1 2 1 1"}
+              {
+                "id": "345679",
+                "title": "Topic 1f 2 1 1"
+              }
             ]
           },
           {
             "id": "456",
             "title": "Lesson 1 2 2",
             "topics": [
-              {"title": "Topic 1 2 2 1"}
+              {
+                "id": "152358",
+                "title": "Topic 1 2 2k 1"
+              }
             ]
           }
         ]
@@ -55,17 +70,36 @@
         "lessons": [
           {
             "id": "567",
-            "title": "Lesson 1 3 1"
+            "title": "Lesson 1 3 1",
+            "topics": [
+              {
+                "id": "150172907",
+                "title": "Topic 1 1 1o 1"
+              }
+            ]
           },
           {
             "id": "678",
-            "title": "Lesson 1 3 2"
+            "title": "Lesson 1 3 2",
+            "topics": []
           }
         ]
       },
       {
         "id": "456",
-        "title": "Module 2 2"
+        "title": "Module 2 2",
+        "lessons": [
+          {
+            "id": "567",
+            "title": "Lesson 1 3 10",
+            "topics": []
+          },
+          {
+            "id": "678",
+            "title": "Lesson 1 3 7",
+            "topics": []
+          }
+        ]
       }
     ]
   },
@@ -75,16 +109,63 @@
     "modules": [
       {
         "id": "567",
-        "title": "Module 3 1"
+        "title": "Module 3 1",
+        "lessons": [
+          {
+            "id": "567",
+            "title": "Lesson 1 3 10",
+            "topics": [
+              {
+                "id": "1380297150",
+                "title": "Topic 1 1d 1 1"
+              }
+            ]
+          },
+          {
+            "id": "678",
+            "title": "Lesson 1 3 7",
+            "topics": []
+          }
+        ]
       },
       {
         "id": "678",
-        "title": "Module 3 2"
+        "title": "Module 3 2",
+        "lessons": [
+          {
+            "id": "567",
+            "title": "Lesson 1 3 123455",
+            "topics": []
+          },
+          {
+            "id": "678",
+            "title": "Lesson 1 3 123",
+            "topics": []
+          }
+        ]
       }
     ]
   },
   {
     "id": "456",
-    "title": "Course 4"
+    "title": "Course 4",
+    "modules": [
+      {
+        "id": "567",
+        "title": "Module 3 1",
+        "lessons": [
+          {
+            "id": "567",
+            "title": "Lesson 1 3 10",
+            "topics": []
+          },
+          {
+            "id": "678",
+            "title": "Lesson 1 3 7",
+            "topics": []
+          }
+        ]
+      }
+    ]
   }
 ]

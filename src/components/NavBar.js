@@ -1,19 +1,13 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import WhiteBoard from "./WhiteBoard"
 import {Link} from 'react-router-dom'
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
-  faTh,
-  faSortAlphaDown,
-  faList,
-  faCaretDown,
-  faBook, faTimesCircle, faPlusSquare
+  faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons'
-import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
 
-const LessonTabs = ({course,module}) =>
+const NavBar = ({course,module}) =>
 
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -65,4 +59,4 @@ const LessonTabs = ({course,module}) =>
 
 
 
-export default LessonTabs
+export default NavBar

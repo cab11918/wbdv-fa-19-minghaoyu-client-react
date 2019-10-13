@@ -2,10 +2,8 @@ import React from 'react'
 import CourseRow from "../components/CourseRow";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTh, faSortAlphaDown} from '@fortawesome/free-solid-svg-icons'
-import CourseServices from "../services/CourseService"
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import CourseGrid from "./CourseGrid";
-import WhiteBoard from "../components/WhiteBoard"
 import {Link} from 'react-router-dom'
 import CourseService from "../services/CourseService"
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
@@ -20,6 +18,7 @@ class CourseTable extends React.Component {
         title: "New Course Title"
       },
       courses: this.CourseService.findAllCourses(),
+
     }
 
   }
@@ -41,7 +40,15 @@ class CourseTable extends React.Component {
     this.setState(prevState => {
       const course = {
         title: prevState.course.title,
-        id: (new Date().getTime())
+        id: (new Date().getTime()),
+        modules:[
+
+          {"lessons":[
+              {
+                "topics":["1"],
+              }
+            ]}
+        ],
       };
       this.CourseService.createCourse(course)
       this.setState({courses: this.CourseService.courses});
@@ -84,7 +91,7 @@ class CourseTable extends React.Component {
                     placeholder={this.state.course.title} aria-label="Search">
 
                 </input>
-                <button onClick={this.createCourse}>
+                <button onClick={this.createCourse} className="btn btn-success">
 
                   <FontAwesomeIcon icon={faPlusCircle}/>
                 </button>

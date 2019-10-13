@@ -2,12 +2,8 @@ import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBook} from '@fortawesome/free-solid-svg-icons'
 import {faTimes} from '@fortawesome/free-solid-svg-icons'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
-import CourseTable from "../containers/CourseTable";
-import CourseEditor from "../containers/CourseEditor";
-import CourseGrid from "../containers/CourseGrid";
-import CourseService from "../services/CourseService";
+
 
 
 

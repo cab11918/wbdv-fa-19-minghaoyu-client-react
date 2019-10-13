@@ -1,21 +1,13 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import WhiteBoard from "./WhiteBoard"
-import {Link} from 'react-router-dom'
+
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {
-  faTh,
-  faSortAlphaDown,
-  faList,
-  faCaretDown,
-  faBook
-} from '@fortawesome/free-solid-svg-icons'
-import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
+
 import {faTimesCircle} from "@fortawesome/free-solid-svg-icons/faTimesCircle";
 import {faEdit} from "@fortawesome/free-solid-svg-icons/faEdit";
 
-const ModuleList = ({course, handleDelete,module,newModuleChanged,createModule}) =>
+const ModuleList = ({course, handleDelete,newModuleChanged,createModule, selectModule}) =>
 
     <div className="container-fluid col-3">
       <div className="list-group wbdv-module-list" id="list-tab"
@@ -23,7 +15,7 @@ const ModuleList = ({course, handleDelete,module,newModuleChanged,createModule})
 
         {course.modules.map(module =>
 
-            <a className="list-group-item list-group-item-action wbdv-module-item"
+            <li onClick={()=>selectModule(module)} className="list-group-item list-group-item-action wbdv-module-item"
                id="list-module1"
                data-toggle="list"
                href="#module1" role="tab" aria-controls="module1">
@@ -51,13 +43,13 @@ const ModuleList = ({course, handleDelete,module,newModuleChanged,createModule})
               </button>
 
 
-            </a>
+            </li>
         )
         }
         <input
 
             onChange={newModuleChanged}
-            placeholder={module.title}
+            placeholder="New Module"
             className="form-control "
              aria-label="Search">
 

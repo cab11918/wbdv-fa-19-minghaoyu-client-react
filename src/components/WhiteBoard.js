@@ -1,7 +1,6 @@
 import React from 'react'
 
 import CourseTable from "../containers/CourseTable";
-import CourseCard from "./CourseCard";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CourseGrid from "../containers/CourseGrid";
 import CourseEditor from "../containers/CourseEditor";

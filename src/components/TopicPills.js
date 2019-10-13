@@ -2,25 +2,26 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimesCircle} from "@fortawesome/free-solid-svg-icons/faTimesCircle";
-import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 import {faEdit} from "@fortawesome/free-solid-svg-icons/faEdit";
+import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 
-const LessonsTab = ({module,selectLesson,deleteLesson,createLesson,newLessonChanged}) =>
+const TopicPills = ({lesson, deleteTopic, newTopicChanged, createTopic}) =>
 
-    <ul className="nav nav-tabs">
+    <ul className="nav nav-pills">
+
+
       {
-        module.lessons.map(lesson =>
+
+        lesson.topics.map(topic =>
             <li className="nav-item">
-              <a className="btn btn-outline btn-light"
-                 onClick={()=>selectLesson(lesson)}
+              <a className="btn btn-outline btn-warning">
+                {topic.title}
 
-              >
-                {lesson.title} &nbsp;
-
+                &nbsp;
 
                 <button className="close"
                         onClick={() => {
-                          deleteLesson(lesson.id)
+                          deleteTopic(topic.id)
                         }}>
 
 
@@ -38,21 +39,26 @@ const LessonsTab = ({module,selectLesson,deleteLesson,createLesson,newLessonChan
 
             </li>
         )
+
       }
 
+
+      &nbsp;
+
       <button className="close"
-              onClick={createLesson}>
+              onClick={createTopic}>
 
         <FontAwesomeIcon icon={faPlusCircle}/>
       </button>
+
       &nbsp;
 
       <input
+          onChange={newTopicChanged}
 
 
-          className="form-control col-2"
-          placeholder="New Lesson" aria-label="Search"
-          onChange={newLessonChanged}
+          className="form-control col-1"
+          placeholder="New Topic" aria-label="Search"
       >
 
       </input>
@@ -60,7 +66,7 @@ const LessonsTab = ({module,selectLesson,deleteLesson,createLesson,newLessonChan
 
     </ul>
 
-export default LessonsTab
+export default TopicPills
 
 
 
