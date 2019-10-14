@@ -6,65 +6,66 @@ import {faEdit} from "@fortawesome/free-solid-svg-icons/faEdit";
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 
 const TopicPills = ({lesson, deleteTopic, newTopicChanged, createTopic}) =>
-
-    <ul className="nav nav-pills">
-
-
-      {
-
-        lesson.topics.map(topic =>
-            <li className="nav-item">
-              <a className="btn btn-outline btn-warning">
-                {topic.title}
-
-                &nbsp;
-
-                <button className="close"
-                        onClick={() => {
-                          deleteTopic(topic.id)
-                        }}>
+      <ul className="nav nav-pills">
 
 
-                  <FontAwesomeIcon icon={faTimesCircle}/>
+        {
+
+          lesson.topics.map(topic =>
+              <li className="nav-item">
+                <a className="btn btn-outline btn-warning">
+                  {topic.title}
+
+                  &nbsp;
+
+                  <button className="close"
+                          onClick={() => {
+                            deleteTopic(topic.id)
+                          }}>
 
 
-                </button>
+                    <FontAwesomeIcon icon={faTimesCircle}/>
 
 
-                <button className="close">
-
-                  <FontAwesomeIcon icon={faEdit}/>
-                </button>
-              </a>
-
-            </li>
-        )
-
-      }
+                  </button>
 
 
-      &nbsp;
+                  <button className="close">
 
-      <button className="close"
-              onClick={createTopic}>
+                    <FontAwesomeIcon icon={faEdit}/>
+                  </button>
+                </a>
 
-        <FontAwesomeIcon icon={faPlusCircle}/>
-      </button>
+              </li>
+          )
 
-      &nbsp;
-
-      <input
-          onChange={newTopicChanged}
+        }
 
 
-          className="form-control col-1"
-          placeholder="New Topic" aria-label="Search"
-      >
+        &nbsp;
 
-      </input>
+        <button className="close"
+                onClick={createTopic}>
+
+          <FontAwesomeIcon icon={faPlusCircle}/>
+        </button>
+
+        &nbsp;
+
+        <input
+            onChange={newTopicChanged}
 
 
-    </ul>
+            className="form-control col-1"
+            placeholder="New Topic" aria-label="Search"
+        >
+
+        </input>
+
+
+      </ul>
+
+
 
 export default TopicPills
 

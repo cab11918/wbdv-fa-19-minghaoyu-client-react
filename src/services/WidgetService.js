@@ -25,9 +25,8 @@ export default class WidgetService {
   }
 
   deleteWidget(widgetid) {
-
-    //
-
+    this.widgets.filter(widget => widget.id !==
+        widgetid)
   }
 
   updateWidget(widgetid, widget) {
