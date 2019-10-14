@@ -2,10 +2,7 @@ import React from 'react'
 
 const ParagraphWidget = ({widget}) =>
     <div>
-
-
-      { widget.type === "HEADING" && <label className="h4">Heading widget</label>}
-
+      <label className="h4">Paragraph widget</label>
 
 
       <form>

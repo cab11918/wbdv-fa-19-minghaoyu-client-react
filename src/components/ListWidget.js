@@ -4,7 +4,7 @@ const ListWidget = ({widget}) =>
     <div>
 
 
-        { widget.type === "HEADING" && <label className="h4">Heading widget</label>}
+         <label className="h4">List widget</label>
 
 
 
