@@ -10,7 +10,6 @@ import {faTimesCircle} from "@fortawesome/free-solid-svg-icons/faTimesCircle";
 import {faArrowAltCircleUp} from "@fortawesome/free-solid-svg-icons/faArrowAltCircleUp";
 import {faArrowAltCircleDown} from "@fortawesome/free-solid-svg-icons/faArrowAltCircleDown";
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
-import Form from 'react-bootstrap/Form';
 
 const WidgetListComponent = ({widgets, addWidget, deleteWidget}) =>
 
