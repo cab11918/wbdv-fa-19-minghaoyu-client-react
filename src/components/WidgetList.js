@@ -58,16 +58,8 @@ const WidgetListComponent = ({widgets, addWidget, deleteWidget}) =>
               onClick={addWidget}>
         <FontAwesomeIcon icon={faPlusCircle}/></button>
 
-      <button className="btn btn-warning btn-lg float-right"
-      >
-
-
-        <Form.Check
-            type="switch"
-            id="custom-switch"
-            label="Preview"
-        />
-
+      <button className="btn btn-warning btn-lg float-right">
+        Preview
       </button>
       <button className="btn btn-success btn-lg float-right">
         Save
