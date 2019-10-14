@@ -45,7 +45,7 @@ class CourseTable extends React.Component {
 
           {"lessons":[
               {
-                "topics":["1"],
+                "topics":[],
               }
             ]}
         ],

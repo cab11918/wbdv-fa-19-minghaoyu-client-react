@@ -1,8 +1,8 @@
-import courses from "./courses";
+import widgets from '../services/widgets'
 
 export default class WidgetService {
   static myInstance = null;
-  widgets = courses
+  widgets = widgets
 
   static getInstance() {
     if (WidgetService.myInstance == null) {

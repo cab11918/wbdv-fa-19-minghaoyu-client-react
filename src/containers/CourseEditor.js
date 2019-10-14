@@ -5,6 +5,19 @@ import NavBar from "../components/NavBar";
 import LessonsTab from "../components/LessonsTab";
 import CourseService from "../services/CourseService";
 import TopicPills from "../components/TopicPills";
+import WidgetList from "../components/WidgetList";
+import WidgetService from "../services/WidgetService"
+import {Provider} from "react-redux";
+import WidgetListContainer from "./WidgetListContainer";
+import {createStore} from "redux";
+import WidgetReducer from "../reducers/WidgetReducer";
+
+
+
+
+const store = createStore(WidgetReducer)
+
+
 
 class CourseEditor extends React.Component {
 
@@ -18,6 +31,9 @@ class CourseEditor extends React.Component {
     const module = course.modules[0]
 
     const lesson = module.lessons[0]
+
+
+
 
 
     this.state = {
@@ -190,6 +206,18 @@ class CourseEditor extends React.Component {
                   deleteTopic={this.deleteTopic}
                   newTopicChanged={this.newTopicChanged}
                   createTopic={this.createTopic}/>
+
+
+
+              <Provider store={store}>
+                <WidgetListContainer/>
+              </Provider>
+
+
+
+
+
+
 
             </div>
 
