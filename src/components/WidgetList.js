@@ -11,15 +11,27 @@ import {faArrowAltCircleUp} from "@fortawesome/free-solid-svg-icons/faArrowAltCi
 import {faArrowAltCircleDown} from "@fortawesome/free-solid-svg-icons/faArrowAltCircleDown";
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
 
-const WidgetListComponent = ({widgets, addWidget, deleteWidget}) =>
+export default class WidgetList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-    <div>
+  handleChange(event, widgetId) {
+
+    this.props.updateWidget(event.target.value.toString().toUpperCase(),
+        widgetId)
+  }
+
+
+  render() {
+    return <div>
 
 
       <ul className="list-group">
 
         {
-          widgets.map(widget =>
+          this.props.widgets.map(widget =>
 
               <li className="list-group-item">
                 <div className="row float-right">
@@ -30,41 +42,42 @@ const WidgetListComponent = ({widgets, addWidget, deleteWidget}) =>
                   <button className="btn btn-warning">
                     <FontAwesomeIcon icon={faArrowAltCircleDown}/>
                   </button>
-                  <select className="selectPicker">
-                    <option>{widget.type}</option>
 
-                  </select>
                   <button className="btn btn-danger float-right"
-                          onClick={() => deleteWidget(widget.id)}>
+                          onClick={() => this.props.deleteWidget(widget.id)}>
                     <FontAwesomeIcon icon={faTimesCircle}/>
                   </button>
                 </div>
-                {widget.type === "HEADING" && <HeadingWidget widget={widget}/>}
+                {widget.type === "HEADING" && <HeadingWidget widget={widget}
+                                                             handleChange={this.handleChange}/>}
 
 
-                {widget.type === "LIST" && <ListWidget widget={widget}/>}
+                {widget.type === "LIST" && <ListWidget widget={widget}
+                                                       handleChange={this.handleChange}/>}
 
                 {widget.type === "PARAGRAPH" && <ParagraphWidget
-                    widget={widget}/>}
-                {widget.type === "LINK" && <LinkWidget widget={widget}/>}
-                {widget.type === "IMAGE" && <ImageWidget widget={widget}/>}
+                    widget={widget} handleChange={this.handleChange}/>}
+                {widget.type === "LINK" && <LinkWidget widget={widget}
+                                                       handleChange={this.handleChange}/>}
+                {widget.type === "IMAGE" && <ImageWidget widget={widget}
+                                                         handleChange={this.handleChange}/>}
 
               </li>
           )
         }
       </ul>
-      <button className="btn btn-success btn-lg float-right"
-              onClick={addWidget}>
-        <FontAwesomeIcon icon={faPlusCircle}/></button>
 
-      <button className="btn btn-warning btn-lg float-right">
-        Preview
-      </button>
+      <button className="btn btn-success btn-lg float-right"
+              onClick={this.props.addWidget}>
+        <FontAwesomeIcon icon={faPlusCircle}/></button>
+      <input type="checkbox"  data-size="lg" data-on="Preview" data-off="Edit" data-onstyle="primary" onChange={() => alert("fuck")}/>preview
+
       <button className="btn btn-success btn-lg float-right">
         Save
       </button>
 
 
     </div>
+  }
 
-export default WidgetListComponent;
+}

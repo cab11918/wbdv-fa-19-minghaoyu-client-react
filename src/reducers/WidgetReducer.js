@@ -2,7 +2,7 @@ import WidgetService from "../services/WidgetService"
 
 const service = WidgetService.getInstance()
 const initialState = {
-  widgets: service.findWidgets()
+  widgets: service.findWidgets(),
 }
 
 const WidgetListReducer = (state = initialState, action) => {
@@ -30,6 +30,21 @@ const WidgetListReducer = (state = initialState, action) => {
       }
     default:
       return state
+
+    case 'UPDATE_WIDGET' :
+
+      let widgets = []
+
+      state.widgets.map(widget => {
+        widgets.push(widget)
+      })
+
+      widgets.find(({id}) => id === action.widgetId).type = action.widgetType
+
+      return {
+        widgets: widgets
+      }
+
   }
 }
 

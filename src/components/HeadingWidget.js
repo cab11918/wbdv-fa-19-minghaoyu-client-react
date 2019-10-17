@@ -1,50 +1,109 @@
 import React from 'react'
 
-const HeadingWidget = ({widget}) =>
-    <div>
+class HeadingWidget extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      preview: "",
+      size: 'h' + this.props.widget.size
+
+    }
+  }
+
+  newHeadingChanged = (event) =>
+
+      this.setState({
+        preview: event.target.value
+
+      })
+
+  changeSize = (event) => {
+
+    if (event.target.value === 'Heading 1') {
+      this.setState({size: 'h1'})
+    } else if (event.target.value === 'Heading 2') {
+      this.setState({size: 'h2'})
+    } else if (event.target.value === 'Heading 3') {
+      this.setState({size: 'h3'})
+    } else if (event.target.value === 'Heading 4') {
+      this.setState({size: 'h4'})
+    } else if (event.target.value === 'Heading 5') {
+      this.setState({size: 'h5'})
+    } else if (event.target.value === 'Heading 6') {
+      this.setState({size: 'h6'})
+    }
+
+  }
+
+  render() {
+    return (
+        <div className="container-fluid">
 
 
-        { widget.type === "HEADING" && <label className="h4">Heading widget</label>}
+          <label className="h4">Heading widget</label>
+
+          <select
+              className="selectPicker"
+              onChange={(event) => this.props.handleChange(event,
+                  this.props.widget.id)}>
+            <option selected value="Heading">Heading</option>
+            <option value="Paragraph">Paragraph</option>
+            <option value="List">List</option>
+            <option value="Image">Image</option>
+            <option value="Link">Link</option>
 
 
+          </select>
 
-        <form>
+
+          <form>
             <div className="form-group">
-                <input className="form-control"
+              <input  className="form-control"
+                     onChange={this.newHeadingChanged}
 
-                       placeholder={widget.text}/>
+                     placeholder="Heading text"/>
 
             </div>
             <div className="form-group">
-                <select className="form-control">
-                    <option>Heading 1</option>
-                    <option>Heading 2</option>
-                    <option>Heading 3</option>
-                    <option>Heading 4</option>
-                    <option>Heading 5</option>
-                    <option>Heading 6</option>
+              <select
+                  onChange={(event) => this.changeSize(event)}
+                  className="form-control">
+                <option>Heading 1</option>
+                <option>Heading 2</option>
+                <option>Heading 3</option>
+                <option>Heading 4</option>
+                <option>Heading 5</option>
+                <option>Heading 6</option>
 
-                </select>
+              </select>
 
             </div>
 
             <div className="form-group">
-                <input className="form-control"
+              <input className="form-control"
 
-                       placeholder="Widget name"/>
+                     placeholder="Widget name"/>
 
             </div>
 
-        </form>
+            <h3>Preview</h3>
 
-        <h3>Preview</h3>
-        {widget.size === 1 && <h1>{widget.text}</h1>}
-        {widget.size === 2 && <h2>{widget.text}</h2>}
-        {widget.size === 3 && <h3>{widget.text}</h3>}
-        {widget.size === 4 && <h4>{widget.text}</h4>}
-        {widget.size === 5 && <h5>{widget.text}</h5>}
-        {widget.size === 6 && <h6>{widget.text}</h6>}
+              <div className={this.state.size}>{this.state.preview}</div>
 
-    </div>
+
+
+
+          </form>
+
+
+
+
+
+        </div>
+    )
+
+  }
+}
 
 export default HeadingWidget

@@ -5,7 +5,7 @@ import {faTimesCircle} from "@fortawesome/free-solid-svg-icons/faTimesCircle";
 import {faEdit} from "@fortawesome/free-solid-svg-icons/faEdit";
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 
-const TopicPills = ({lesson, deleteTopic, newTopicChanged, createTopic}) =>
+const TopicPills = ({lesson, deleteTopic, newTopicChanged, createTopic,selectTopic}) =>
       <ul className="nav nav-pills">
 
 
@@ -13,7 +13,8 @@ const TopicPills = ({lesson, deleteTopic, newTopicChanged, createTopic}) =>
 
           lesson.topics.map(topic =>
               <li className="nav-item">
-                <a className="btn btn-outline btn-warning">
+                <a className="btn btn-outline btn-warning"
+                   onClick={()=>selectTopic(topic)}>
                   {topic.title}
 
                   &nbsp;
