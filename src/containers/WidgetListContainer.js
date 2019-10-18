@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 const stateToPropertyMapper = state => {
   return {
     widgets: state.widgets,
-    preview:"off"
 
   }
 }
@@ -20,7 +19,15 @@ const dispatcherToPropertyMapper = dispatch => {
     },
     updateWidget: (widgetType,id) => {
       dispatch({type: 'UPDATE_WIDGET', widgetId: id, widgetType: widgetType})
-    }
+    },
+    goUp: (id) => {
+      dispatch({type: 'GO_UP', widgetId: id})
+    },
+    goDown: (id) => {
+      dispatch({type: 'GO_DOWN', widgetId: id})
+    },
+
+
   }
 }
 

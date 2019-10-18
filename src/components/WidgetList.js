@@ -15,6 +15,7 @@ export default class WidgetList extends React.Component {
   constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this);
+
   }
 
   handleChange(event, widgetId) {
@@ -23,6 +24,15 @@ export default class WidgetList extends React.Component {
         widgetId)
   }
 
+  handleGoUp(id) {
+    this.props.goUp(id)
+
+  }
+
+  handleGoDown(id) {
+    this.props.goDown(id)
+
+  }
 
   render() {
     return <div>
@@ -36,10 +46,12 @@ export default class WidgetList extends React.Component {
               <li className="list-group-item">
                 <div className="row float-right">
 
-                  <button className="btn btn-warning">
+                  <button className="btn btn-warning"
+                          onClick={()=>this.handleGoUp(widget.id)}>
                     <FontAwesomeIcon icon={faArrowAltCircleUp}/>
                   </button>
-                  <button className="btn btn-warning">
+                  <button className="btn btn-warning"
+                          onClick={()=>this.handleGoDown(widget.id)}>
                     <FontAwesomeIcon icon={faArrowAltCircleDown}/>
                   </button>
 
@@ -49,7 +61,8 @@ export default class WidgetList extends React.Component {
                   </button>
                 </div>
                 {widget.type === "HEADING" && <HeadingWidget widget={widget}
-                                                             handleChange={this.handleChange}/>}
+                                                             handleChange={this.handleChange}
+                />}
 
 
                 {widget.type === "LIST" && <ListWidget widget={widget}
@@ -70,7 +83,7 @@ export default class WidgetList extends React.Component {
       <button className="btn btn-success btn-lg float-right"
               onClick={this.props.addWidget}>
         <FontAwesomeIcon icon={faPlusCircle}/></button>
-      <input type="checkbox"  data-size="lg" data-on="Preview" data-off="Edit" data-onstyle="primary" onChange={() => alert("fuck")}/>preview
+      <input type="checkbox"/>preview
 
       <button className="btn btn-success btn-lg float-right">
         Save

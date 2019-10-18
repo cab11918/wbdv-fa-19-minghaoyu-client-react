@@ -6,9 +6,11 @@ class HeadingWidget extends React.Component {
 
     this.state = {
       preview: "",
-      size: 'h' + this.props.widget.size
+      size: 'h' + this.props.widget.size,
+      showing: true
 
     }
+
   }
 
   newHeadingChanged = (event) =>
@@ -40,64 +42,69 @@ class HeadingWidget extends React.Component {
     return (
         <div className="container-fluid">
 
+          <input type="checkbox" onChange={() => {
+            this.setState({showing: !this.state.showing})
+          }}/>preview
 
-          <label className="h4">Heading widget</label>
+          {
+            this.state.showing ?
+                <div>
+                  <label className="h4">Heading widget</label>
 
-          <select
-              className="selectPicker"
-              onChange={(event) => this.props.handleChange(event,
-                  this.props.widget.id)}>
-            <option selected value="Heading">Heading</option>
-            <option value="Paragraph">Paragraph</option>
-            <option value="List">List</option>
-            <option value="Image">Image</option>
-            <option value="Link">Link</option>
-
-
-          </select>
-
-
-          <form>
-            <div className="form-group">
-              <input  className="form-control"
-                     onChange={this.newHeadingChanged}
-
-                     placeholder="Heading text"/>
-
-            </div>
-            <div className="form-group">
-              <select
-                  onChange={(event) => this.changeSize(event)}
-                  className="form-control">
-                <option>Heading 1</option>
-                <option>Heading 2</option>
-                <option>Heading 3</option>
-                <option>Heading 4</option>
-                <option>Heading 5</option>
-                <option>Heading 6</option>
-
-              </select>
-
-            </div>
-
-            <div className="form-group">
-              <input className="form-control"
-
-                     placeholder="Widget name"/>
-
-            </div>
-
-            <h3>Preview</h3>
-
-              <div className={this.state.size}>{this.state.preview}</div>
+                  <select
+                      className="selectPicker"
+                      onChange={(event) => this.props.handleChange(event,
+                          this.props.widget.id)}>
+                    <option selected value="Heading">Heading</option>
+                    <option value="Paragraph">Paragraph</option>
+                    <option value="List">List</option>
+                    <option value="Image">Image</option>
+                    <option value="Link">Link</option>
 
 
+                  </select>
 
 
-          </form>
+                  <form>
+                    <div className="form-group">
+                      <input className="form-control"
+                             onChange={this.newHeadingChanged}
+
+                             placeholder="Heading text"/>
+
+                    </div>
+                    <div className="form-group">
+                      <select
+                          onChange={(event) => this.changeSize(event)}
+                          className="form-control">
+                        <option>Heading 1</option>
+                        <option>Heading 2</option>
+                        <option>Heading 3</option>
+                        <option>Heading 4</option>
+                        <option>Heading 5</option>
+                        <option>Heading 6</option>
+
+                      </select>
+
+                    </div>
+
+                    <div className="form-group">
+                      <input className="form-control"
+
+                             placeholder="Widget name"/>
+
+                    </div>
+
+                    <h3>Preview</h3>
 
 
+                  </form>
 
+                </div>
+                : null
+          }
+
+          <div className={this.state.size}>{this.state.preview}</div>
 
 
         </div>
