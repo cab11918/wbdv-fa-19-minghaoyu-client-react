@@ -70,7 +70,8 @@ class HeadingWidget extends React.Component {
                       <input className="form-control"
                              onChange={this.newHeadingChanged}
 
-                             placeholder="Heading text"/>
+                             placeholder="Heading text"
+                      />
 
                     </div>
                     <div className="form-group">

@@ -2,7 +2,6 @@ import widgets from '../services/widgets'
 
 export default class WidgetService {
   static myInstance = null;
-  widgets = widgets
 
   static getInstance() {
     if (WidgetService.myInstance == null) {
@@ -11,25 +10,53 @@ export default class WidgetService {
     return this.myInstance
   }
 
-  findWidgets() {
-    return this.widgets
+  findAllWidgets() {
+    return fetch('https://tranquil-hamlet-37825.herokuapp.com/api/widgets')
+    .then(response => (response.json()))
+
   }
 
-  createWidget(topicid, widget) {
-    //
+  createWidget(widget) {
+    return fetch('https://tranquil-hamlet-37825.herokuapp.com/api/widgets', {
+      method: 'POST',
+      body: JSON.stringify(widget),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
   }
 
-  findWidget(widgetid) {
+  findWidgetById(widgetid) {
 
-    //
+    return fetch(
+        'https://tranquil-hamlet-37825.herokuapp.com/api/widgets/' + widgetid, {
+          method: 'GET',
+
+        }).then(function (response) {
+      return response.json();
+    })
+
   }
 
   deleteWidget(widgetid) {
-    this.widgets.filter(widget => widget.id !==
-        widgetid)
+
+    return fetch(
+        'https://tranquil-hamlet-37825.herokuapp.com/api/widgets/' + widgetid, {
+          method: 'DELETE',
+
+        })
+
   }
 
   updateWidget(widgetid, widget) {
-    //
+    return fetch(
+        'https://tranquil-hamlet-37825.herokuapp.com/api/widgets/' + widgetid, {
+          method: 'PUT',
+
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(widget)
+        })
   }
 }

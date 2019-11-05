@@ -15,6 +15,7 @@ export default class WidgetList extends React.Component {
   constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this);
+    this.props.findAllWidgets();
 
   }
 
@@ -35,23 +36,23 @@ export default class WidgetList extends React.Component {
   }
 
   render() {
+
     return <div>
-
-
       <ul className="list-group">
-
         {
+          this.props.widgets && this.props.widgets.length > 0 &&
+
           this.props.widgets.map(widget =>
 
               <li className="list-group-item">
                 <div className="row float-right">
 
                   <button className="btn btn-warning"
-                          onClick={()=>this.handleGoUp(widget.id)}>
+                          onClick={() => this.handleGoUp(widget.id)}>
                     <FontAwesomeIcon icon={faArrowAltCircleUp}/>
                   </button>
                   <button className="btn btn-warning"
-                          onClick={()=>this.handleGoDown(widget.id)}>
+                          onClick={() => this.handleGoDown(widget.id)}>
                     <FontAwesomeIcon icon={faArrowAltCircleDown}/>
                   </button>
 
@@ -60,23 +61,24 @@ export default class WidgetList extends React.Component {
                     <FontAwesomeIcon icon={faTimesCircle}/>
                   </button>
                 </div>
-                {widget.type === "HEADING" && <HeadingWidget widget={widget}
-                                                             handleChange={this.handleChange}
-                />}
+                {widget.widgetType === "HEADING" && <HeadingWidget
+                    widget={widget}
+                    handleChange={this.handleChange}/>}
 
 
-                {widget.type === "LIST" && <ListWidget widget={widget}
-                                                       handleChange={this.handleChange}/>}
+                {widget.widgetType === "LIST" && <ListWidget widget={widget}
+                                                             handleChange={this.handleChange}/>}
 
-                {widget.type === "PARAGRAPH" && <ParagraphWidget
+                {widget.widgetType === "PARAGRAPH" && <ParagraphWidget
                     widget={widget} handleChange={this.handleChange}/>}
-                {widget.type === "LINK" && <LinkWidget widget={widget}
-                                                       handleChange={this.handleChange}/>}
-                {widget.type === "IMAGE" && <ImageWidget widget={widget}
-                                                         handleChange={this.handleChange}/>}
+                {widget.widgetType === "LINK" && <LinkWidget widget={widget}
+                                                             handleChange={this.handleChange}/>}
+                {widget.widgetType === "IMAGE" && <ImageWidget widget={widget}
+                                                               handleChange={this.handleChange}/>}
 
               </li>
           )
+
         }
       </ul>
 

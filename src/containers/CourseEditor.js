@@ -10,12 +10,7 @@ import WidgetListContainer from "./WidgetListContainer";
 import {createStore} from "redux";
 import WidgetReducer from "../reducers/WidgetReducer";
 
-
-
-
 const store = createStore(WidgetReducer)
-
-
 
 class CourseEditor extends React.Component {
 
@@ -31,10 +26,6 @@ class CourseEditor extends React.Component {
     const lesson = module.lessons[0]
 
     const topic = lesson.topics[0]
-
-
-
-
 
     this.state = {
 
@@ -90,9 +81,6 @@ class CourseEditor extends React.Component {
 
       })
 
-
-
-
   createModule = () => {
     this.setState(prevState => {
       const module = {
@@ -141,7 +129,6 @@ class CourseEditor extends React.Component {
         title: prevState.tTitle,
         id: (new Date().getTime()),
 
-
       };
       this.state.lesson.topics.push(topic)
 
@@ -153,8 +140,6 @@ class CourseEditor extends React.Component {
       topics: this.state.lesson.topics
     }
   }
-
-
 
   selectModule = module => {
     this.setState({
@@ -171,7 +156,7 @@ class CourseEditor extends React.Component {
 
   selectTopic = topic => {
     this.setState({
-      topic:topic
+      topic: topic
     })
   }
 
@@ -216,15 +201,9 @@ class CourseEditor extends React.Component {
                   selectTopic={this.selectTopic}/>
 
 
-
               <Provider store={store}>
                 <WidgetListContainer topicId={this.state.topic.id}/>
               </Provider>
-
-
-
-
-
 
 
             </div>
