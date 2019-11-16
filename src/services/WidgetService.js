@@ -17,6 +17,7 @@ export default class WidgetService {
   }
 
   createWidget(widget) {
+
     return fetch('https://tranquil-hamlet-37825.herokuapp.com/api/widgets', {
       method: 'POST',
       body: JSON.stringify(widget),

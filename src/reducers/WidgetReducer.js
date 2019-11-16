@@ -14,19 +14,20 @@ const WidgetListReducer = (state = initialState, action) => {
 
       return {
 
-        widgets: action.widgets
+        widgets: service.deleteWidget
 
       }
 
     case 'CREATE_WIDGET':
       return {
-        widgets: action.widgets
+
+        widgets: service.addWidget
       }
 
     case 'UPDATE_WIDGET' :
 
       return {
-        widgets: action.widgets
+        widgets: service.updateWidget
       }
 
     case 'GO_UP' :
